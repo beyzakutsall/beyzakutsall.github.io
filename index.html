@@ -749,6 +749,44 @@
         -webkit-border-radius:15px 0 35px 25px;
         border-radius:15px 0 35px 25px;
     }
+    .skills, .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skill {
+    background-color: #ffb6c1; /* Açık pembe */
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.interest {
+    background-color: #add8e6; /* Açık mavi */
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.interest:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
 </style>
 </head>
 <body>
@@ -945,6 +983,21 @@
         document.getElementById('projectsSection').classList.add('contentVisible');
     }, 1000);
 }, 1500);
+
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBtn = document.querySelector('.sidebar-btn');
+        
+        // Eğer sidebar açıksa ve tıklama sidebar'ın dışındaysa ve sidebar butonuna tıklanmadıysa
+        if (sidebar.classList.contains('open') && 
+            !sidebar.contains(event.target) && 
+            !sidebarBtn.contains(event.target)) {
+            
+            // Sidebar'ı kapat
+            sidebar.classList.remove('open');
+            document.getElementById('mainContent').classList.remove('shifted');
+        }
+    });
 
 </script>
 
